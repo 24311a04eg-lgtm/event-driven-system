@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudCart - Premium Laptop E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="brand">
+                <i class="fas fa-cloud"></i>
+                <h1>CloudCart</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#products" class="nav-link">Products</a></li>
+                <li><a href="#cart" class="nav-link">Cart</a></li>
+                <li><a href="#orders" class="nav-link">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home/About Section -->
+    <section id="home" class="about-section">
+        <div class="about-container">
+            <h2>Welcome to CloudCart</h2>
+            <p class="about-description">
+                CloudCart is your premier destination for high-performance laptops. We offer carefully curated selections of the latest technology, 
+                ensuring you get the best value for your investment. With our cloud-based platform, shopping has never been easier or more convenient. 
+                Experience premium service with competitive pricing, fast shipping, and 30-day returns on all products.
+            </p>
+
+            <div class="reviews-container">
+                <h3>Customer Reviews</h3>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <strong>Sarah Johnson</strong>
+                            <span class="rating">★★★★★</span>
+                        </div>
+                        <p>"Excellent laptop selection and fast delivery! The Macbook Pro I ordered arrived in perfect condition. Highly recommend CloudCart!"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <strong>Michael Chen</strong>
+                            <span class="rating">★★★★★</span>
+                        </div>
+                        <p>"Best prices I found online for premium laptops. Customer service was responsive and helpful. Will definitely buy again!"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <strong>Emily Rodriguez</strong>
+                            <span class="rating">★★★★☆</span>
+                        </div>
+                        <p>"Great experience overall. The Dell XPS was exactly as described. Shipping took a bit longer than expected, but still satisfied."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2>Featured Laptops</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section id="cart" class="cart-section">
+        <div class="container">
+            <h2>Shopping Cart</h2>
+            <div class="cart-content">
+                <div class="cart-items" id="cartItems">
+                    <p class="empty-message">Your cart is empty. Add some laptops!</p>
+                </div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotalPrice">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="totalPrice">$0.00</span>
+                    </div>
+                    <button class="btn-primary btn-large" id="checkoutBtn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section id="checkoutSection" class="checkout-section hidden">
+        <div class="container">
+            <h2>Checkout</h2>
+            <div class="checkout-content">
+                <form id="checkoutForm" class="checkout-form">
+                    <fieldset>
+                        <legend>Billing Information</legend>
+                        <div class="form-group">
+                            <label for="customerName">Full Name *</label>
+                            <input type="text" id="customerName" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number *</label>
+                            <input type="tel" id="customerPhone" name="phone" required placeholder="(555) 123-4567">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Payment Information</legend>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" name="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardCVV">CVV *</label>
+                                <input type="text" id="cardCVV" name="cvv" required placeholder="123" maxlength="4">
+                            </div>
+                            <div class="form-group">
+                                <label for="orderQuantity">Quantity *</label>
+                                <input type="number" id="orderQuantity" name="quantity" min="1" value="1" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="checkout-actions">
+                        <button type="submit" class="btn-primary btn-large">Complete Purchase</button>
+                        <button type="button" class="btn-secondary btn-large" id="cancelCheckoutBtn">Cancel</button>
+                    </div>
+                </form>
+
+                <div class="checkout-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkoutSummary">
+                        <!-- Summary will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="success-modal hidden">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order will be shipped soon!</p>
+            <p class="order-id">Order ID: <strong id="successOrderId"></strong></p>
+            <button class="btn-primary" id="closeSuccessBtn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Orders Section -->
+    <section id="orders" class="orders-section">
+        <div class="container">
+            <h2>My Orders</h2>
+            <div class="orders-list" id="ordersList">
+                <p class="empty-message">No orders placed yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 CloudCart. All rights reserved. | Hosted on AWS S3 + CloudFront</p>
+            <p>E-commerce solution designed for cloud deployment.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
