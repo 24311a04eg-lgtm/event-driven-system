@@ -1,0 +1,4 @@
+{
+  "source": ["cloudcart.orders"],
+  "detail-type": ["OrderPlaced", "OrderCancelled"]
+}
